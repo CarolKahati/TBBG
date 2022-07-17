@@ -1,11 +1,13 @@
-/*crtl + space = mostra opções opções de propriedades*/
-/*================================================================================================VARIABLES*/
+
+
+
+/*================VARIABLES*/
+
+
 :root{
   --header-height: 7.2rem;
 
-  --hue: 230; /*criada uma variavel de cor para que esta sendo usada em h1 e button, otimizando as alterações de cores
-              desta forma podemos alterar as cores do tema do site com uma simples alteração da variavel --hue*/
-  /*HSL color mode*/
+  --hue: 230; 
   
   /*CORES PADRÃO*/
   --base-color: rgb(69, 2, 151);
@@ -26,7 +28,9 @@
 }
 
 
-/*================================================================================================BASE*/
+/*===================BASE*/
+
+
 html{
   scroll-behavior: smooth;
   font-size: 62.5%;
@@ -45,7 +49,7 @@ body{
   font:700 2.4rem "Poppins", sans-serif;
   color: var(--title-color);
 }
-.button{ /* Botão Agendar um horario*/
+.button{ 
   
   background-color: var(--base-color);
   color: var(--text-color-light);
@@ -62,7 +66,7 @@ body{
   font: 500 1.6rem var(--title-font);
   transition: background 0.3s;
 }
-.button:hover{ /*interação de passar o mouse por cima troca de cor*/
+.button:hover{ 
   background: rgb(255, 123, 0);
 }
 
@@ -70,9 +74,11 @@ body{
 
 
 
-/*===============================================================================================s=LAYOUT*/
+/*================s=LAYOUT*/
+
+
 .container{
-  margin-left: 2.4rem; /* aqui fizemos a mesma coisa do header, porem pegamos a medida do espaço lateral da pagina e dividimos por 16*/
+  margin-left: 2.4rem; 
   margin-right: 2.4rem; 
 }
 #home .container{
@@ -81,14 +87,14 @@ body{
 #about .container{
   margin: 0;
 }
-.grid{ /*com a propriedade grid podemos habilitar o gap onde quando temos dois filhos, com o gap damos espaço entre eles otimizando ainda mais o alinhamento entre elementos filho*/
+.grid{ 
   display: grid;
   gap: 3.2rem;
 }
 .section {
   padding: calc(8rem + var(--header-height)) 0;
 }
-.section .title{ /*para todo titulo dentro de section aplicar margem inferior de 1rem */
+.section .title{
   margin-bottom: 1.6rem;
 }
 .section .subtitle{
@@ -103,8 +109,7 @@ body{
 #header{
   border-bottom: 1px solid #0a0909;
   margin-bottom: 2rem;
-  display: flex; /*torna o conteudo do header flexivel, se adaptando a sua largura ao eixo horizontal
-  possibilantando um ficar um do lado do outro*/
+  display: flex;
 
 
   position: fixed;
@@ -119,26 +124,29 @@ body{
 }
 
 
-/*================================================================================================LOGO */
+/*===============LOGO */
+
+
 .logo {
   font: 700 2.1rem var(--title-font);
   color: var(--title-color);   
 }
-.logo span{  /*dentro da logo procura para mim o span */
+.logo span{  
   color: var(--base-color);
 }
 .logo-alt span{
   color: var(--body-color);
 }
 
-/*================================================================================================NAVEGATION */
+/*===========NAVEGATION */
+
+
 nav{
-  /*usando medida rem para deixar o header responsivo em relação ao root da pagina que por padrão esta em 16px*/
-  /*para o calculo da medida rem, divida e medida q nesse caso foi que o titulo estava em 72px e dividimos por 16 */
+  
   height: var(--header-height);
   display: flex;
-  align-items: center; /*centralização vertical das duas caixas de dentro do nav*/
-  justify-content: space-between;/*no word quando colocamos o texto na esquerda ou na direita nos o chamamos isso de texto justificado, neste estamos justificando o conteudo com space-between que divido o conteudo e duas partes umap para cada lado, flex-end joga tudo para o final.*/
+  align-items: center; 
+  justify-content: space-between;
   width: 100%;
   ;
 }
@@ -180,8 +188,10 @@ nav .menu ul{
 }
 
 
-/*================================================================================================MOSTRAR MENU*/
-nav.show .menu{ /*o nav.show diferente de nav .show, o nav.show, quando o nav tiver com a classe show procura menu dentro de nav */
+/*=============MOSTRAR MENU*/
+
+
+nav.show .menu{ 
   opacity: 1;
   visibility: visible;
 
@@ -202,17 +212,13 @@ nav.show .menu ul{
   display: grid;
 }
 nav.show ul.grid{
-  gap: 4rem; /*se eu alterar de 4 para 2rem, ao dar zoom até 175% as extremidades ficam dentro da tela*/
+  gap: 4rem; 
 }
 
 
 
-/*================================================================================================TOGGLE MENU*/
-.toggle {
-  color: var(--base-color);
-  font-size: 2.4rem;
-  cursor: pointer;
-}
+/*=============TOGGLE MENU*/
+
 nav .icon-close{
   visibility: hidden;
   opacity: 0;
@@ -231,109 +237,9 @@ nav.show div.icon-close{
 }
 
 
+/*=============TESTIMONIALS*/
 
 
-/*================================================================================================HOME*/
-#home{
-  overflow: hidden;
-}
-#home .image{
-  position: relative;
-}
-#home .image::before{ /*sudo element, podemos criar um elemnento ficticion no caso estamos criando um elemento dentro do elemento img, before significa antes do conteudo.*/
-  content: '';
-  height: 100%;
-  width: 100%;
-  background: var(--base-color-second);
-  position:absolute;
-  top: -16.8%;
-  left: 16.7%;
-  z-index: 0;
-}
-#home .image img {
-  position: relative; /*redimensionamos a imagem um pouco a esquerda*/
-  right: 4.68rem;
-  
-}
-/* imagem inicio pagina acima */
-
-
-#home .image img,
-#home .image::before{
-  border-radius: 0.4rem;
-}
-#home .text{
-  margin-left: 2.4rem; /* aqui fizemos a mesma coisa do header, porem pegamos a medida do espaço lateral da pagina e dividimos por 16*/
-  margin-right: 2.4rem; 
-  text-align: center;
-}
-#home .text h1{
-  margin-bottom: 1.6rem;
-}
-#home .text p{
-  margin-bottom: 3.2rem;
-}
-
-
-
-/*================================================================================================ABOUT*/
-#about{
-  background: rgb(0, 0, 0);
-}
-#about .image{
-  position: relative;
-}
-#about .image::before{ /*sudo element, podemos criar um elemnento ficticio no caso estamos criando um elemento dentro do elemento img, before significa antes do conteudo.*/
-  content: '';
-  height: 100%;
-  width: 100%;
-  background: var(--base-color-second);
-  position:absolute;
-  top: -8.3%;
-  left: -33%;
-  z-index: 0;
-}
-#about .image img {
-  position: relative; /*redimensionamos a imagem um pouco a esquerda*/
-}
-#about .image img,
-#about .image::before{
-  border-radius: 0.4rem;
-}
-#about .text{
-  margin-left: 2.4rem; /* aqui fizemos a mesma coisa do header, porem pegamos a medida do espaço lateral da pagina e dividimos por 16*/
-  margin-right: 2.4rem;   
-}
-
-
-
-/*================================================================================================SERVICES*/
-<!--imagensconf-->
-
-.cards.grid{
-  gap: 2.4rem;
-}
-.card {
-  padding: 5.8rem 3.2rem;
-  box-shadow: 0px 0px 12px 0px hsla(0, 0%, 0%, 0.08);
-  border-bottom:  0.4rem solid var(--base-color);
-  border-radius: 0.4rem 0.4rem 0 0;
-  text-align: center;
-}
-.card i {
-  display: block;
-  margin-bottom:  2.4rem;
-  font-size: 5rem;
-  color: var(--base-color);
-}
-.card .title{
-  font-size: 2.4rem;
-  margin-bottom: 1.2rem;
-}
-
-
-
-/*================================================================================================TESTIMONIALS*/
 #testimonials{
   background: rgb(0, 0, 0);
 }
@@ -372,14 +278,16 @@ border-radius: 0.4rem;
 #testimonials cite img{
   width: 4.8rem;
   height: 4.8rem;
-  object-fit: cover; /*enquadra a imagem que esta dentro da tag img e encaixe cubrindo todo espaço que estiver ali*/
-  clip-path: circle(); /*criar uma mascara circular sobre a imagem*/
+  object-fit: cover; 
+  clip-path: circle(); 
   margin-right: .8rem;
 }
 
 
 
-/*================================================================================================SWIPER*/
+/*============SWIPER*/
+
+
 .swiper-slide{
   height: auto;
   padding: 8rem 1.6rem;
@@ -394,7 +302,9 @@ border-radius: 0.4rem;
 
 
 
-/*================================================================================================CONTACT*/
+/*=============CONTACT*/
+
+
 #button_whatsapp{
   background-color: var(--base-color);
   color: var(--text-color-light);
@@ -437,7 +347,9 @@ border-radius: 0.4rem;
 }
 
 
-/*================================================================================================FOOTER*/
+/*=============FOOTER*/
+
+
 footer{
   background: var(--base-color);
 }
@@ -473,7 +385,9 @@ footer .social a:hover{
   transform: translateY(-8px);
 }
 
-/*================================================================================================BACK-TO-TOP*/
+/*==============BACK-TO-TOP*/
+
+
 .back-to-top{
   background: var(--base-color);
   color: var(--text-color-light);
@@ -503,8 +417,9 @@ footer .social a:hover{
 }
   
 
-/*================================================================================================RESPONSIVO*/
-/*a ideia do media é realizar uma operação ao contrario por exemplo */
+/*=================RESPONSIVO*/
+
+
 @media(min-width: 1200px){
   /*reusable classes*/
   .container{
@@ -611,5 +526,6 @@ footer .logo{
       --subtitle-font-size:1.8rem;
   }
 }
+
 
 
